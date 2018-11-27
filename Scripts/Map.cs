@@ -433,6 +433,7 @@ public class Map : MonoBehaviour
         }
 
     }
+    
     public List<Cell> getNeighbors(Cell cell)
     {
         List<Cell> neighbors = new List<Cell>();
@@ -450,4 +451,5 @@ public class Map : MonoBehaviour
             }
         }
         return neighbors;
+    )
 }
