@@ -13,6 +13,12 @@ public class HPAManager : MonoBehaviour {
     public AStarAlgo aStar;
     public ZoneManager zm;
 
+    void Awake()
+    {
+        map.GetComponent<Map>();
+    }
+
+
     /*
     // used for testing and other debugging
     // Use this for initialization
@@ -151,26 +157,9 @@ public class HPAManager : MonoBehaviour {
         Vector3 targetThreshold = FindThresholdCell(targetPos);
 
 
-        ///////////////////////////////////
-        /// 
-        /// I am not sure if the aStar.FindPath(startThreshold, targetThreshold)
-        /// would search the cell graph or the threshold
-        /// We want it to search the threshold graph so I tryed assigning them to threshold subclass
-        /// couldm't figurq out how to asisgn it properly, what ist he tzoneID?
-        /// 
-        ///Cell c1 = m.CellFromWorldPos(startThreshold);
-        ///Cell c2 = m.CellFromWorldPos(targetThreshold);
-        /// 
-        ///Threshold starting = startThreshold;
-        ///Threshold ending = new Threshold(tzonid, c2.zoneId, c2.worldPosition, c2.X, c2.Y)
-        ///
-        ///aStar.FindPath(starting.worldPosition, ending.worldPosition);
-        ///
-        /////////////////////////
-
         //Finding Path
         aStar.FindPath(startThreshold, targetThreshold);
-        /*
+
         //Search the zones between thresholds in the found threshold path
         List<Cell> thresholdPath = aStar.retrievesPath(startThreshold, targetThreshold);
         for (int i = 0; i < thresholdPath.Count - 1; i++)
@@ -178,7 +167,7 @@ public class HPAManager : MonoBehaviour {
             //find the path of the zones
             aStar.FindPath(thresholdPath[i].worldPosition, thresholdPath[i + 1].worldPosition);
         }
-        */
+
     }
 
 
