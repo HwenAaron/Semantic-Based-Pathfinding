@@ -45,7 +45,7 @@ public class HPAManager : MonoBehaviour {
     }
 
 
-     * rewrote a clearer version below 
+    //rewrote a clearer version below 
     void ThresholdPath(Vector3 startPos, Vector3 targetPos)
     {
         Cell start = m.CellFromWorldPos(startPos);
@@ -233,9 +233,6 @@ public class HPAManager : MonoBehaviour {
         Cell start = m.CellFromWorldPos(startPos);
         Cell target = m.CellFromWorldPos(targetPos);
 
-        //Zone z = new Zone(start.zoneId, GetComponent<Renderer>());
-
-
         //check if target and start are inthe same zone
         //If yes run A*
         if (start.zoneId == target.zoneId)
@@ -245,7 +242,7 @@ public class HPAManager : MonoBehaviour {
             return;
         }
         //if not
-        //travel from start to start
+        //travel from start to startc
         Vector3 startTPos = FindThresholdCell(startPos);
         aStar.FindPath(startPos, startTPos);
 
